@@ -4,6 +4,20 @@ spring:
     profiles:    
         active: ${PROFILE_ACTIVE:default}
 
+#  datasource:
+#     driver-class-name: org.postgresql.Driver
+#     url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/clienteapidb?currentSchema=cliente-api}
+#     username: ${SPRING_DATASOURCE_USERNAME:postgres}
+#     password: ${SPRING_DATASOURCE_PASSWORD:postgres}
+#     type: com.zaxxer.hikari.HikariDataSource
+#     hikari:
+#       poolName: SpringBootJPAHikariCP
+#       minimumIdle: 15
+#       maximumPoolSize: 50
+#       connectionTimeout: 30000
+#       idleTimeout: 30000
+#       maxLifetime: 1000000
+
 management:
   endpoints:
     web:
