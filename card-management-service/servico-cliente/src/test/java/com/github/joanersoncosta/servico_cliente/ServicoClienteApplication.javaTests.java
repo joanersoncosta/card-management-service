@@ -1,10 +1,10 @@
-package com.github.joanersoncosta.card_management_service;
+package com.github.joanersoncosta.servico_cliente;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CardManagementServiceApplicationTests {
+class ServicoClienteApplicationTests {
 
 	@Test
 	void contextLoads() {

@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "ServicoClienteApplication",
+            "request": "launch",
+            "mainClass": "com.github.joanersoncosta.servico_cliente.ServicoClienteApplication",
+            "projectName": "card-management-service"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-CardManagementServiceApplication<card-management-service>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.github.joanersoncosta.card_management_service.CardManagementServiceApplication",
+            "projectName": "card-management-service",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=57105 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=card-management-service"
+        }
+    ]
+}

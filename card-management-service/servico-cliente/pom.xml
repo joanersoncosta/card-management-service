@@ -5,14 +5,14 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.3.7</version>
+		<version>3.3.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.github.joanersoncosta</groupId>
-	<artifactId>card-management-service</artifactId>
+	<artifactId>servico_cliente</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>card-management-service</name>
-	<description>Card Management Service é um sistema baseado em Spring Boot para gerenciar clientes e cartões, oferecendo funcionalidades como emissão, bloqueio e administração. Inclui também um BFF que faz chamadas a microserviços para fornecer dados otimizados ao frontend.</description>
+	<name>servico_cliente</name>
+	<description>Este projeto mantem a dependencia de cliente.</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -42,11 +42,27 @@
 			<groupId>org.flywaydb</groupId>
 			<artifactId>flyway-database-postgresql</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+			<version>2.0.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>

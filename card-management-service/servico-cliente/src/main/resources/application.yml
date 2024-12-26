@@ -1,0 +1,24 @@
+spring:
+    application:
+        name: servico-cliente
+    profiles:    
+        active: ${PROFILE_ACTIVE:default}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  level:
+    com.github.joanersoncosta.servico_cliente: ${LOG_LEVEL:DEBUG}
+
+springdoc:
+ openapi:
+  title: Cliente API
+  description: Micro-Serviço de Cliente
+  version: 1.0.0      
