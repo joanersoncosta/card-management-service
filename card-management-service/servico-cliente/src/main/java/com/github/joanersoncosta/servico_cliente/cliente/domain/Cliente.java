@@ -3,6 +3,8 @@ package com.github.joanersoncosta.servico_cliente.cliente.domain;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+import com.github.joanersoncosta.servico_cliente.cliente.application.api.request.ClienteNovoRequest;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -16,12 +18,11 @@ public class Cliente {
 	private Integer idade;
     private LocalDateTime dataCadastro;
 
-    public Cliente(UUID idCliente, String nome, String cpf, String email, Integer idade, LocalDateTime dataCadastro) {
-        this.idCliente = idCliente;
-        this.nome = nome;
-        this.cpf = cpf;
-        this.email = email;
-        this.idade = idade;
-        this.dataCadastro = dataCadastro;
+	public Cliente(ClienteNovoRequest clienteRequest) {
+        this.nome = clienteRequest.nome();
+        this.cpf = clienteRequest.cpf();
+        this.email = clienteRequest.email();
+        this.idade = clienteRequest.idade();
+        this.dataCadastro = LocalDateTime.now();
     }
 }

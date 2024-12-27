@@ -1,4 +1,4 @@
-package com.github.joanersoncosta.servico_cliente_api.handler;
+package com.github.joanersoncosta.servico_cliente.handler;
 
 import java.util.Optional;
 
