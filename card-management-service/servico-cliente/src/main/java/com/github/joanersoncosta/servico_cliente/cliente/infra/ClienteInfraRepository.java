@@ -29,4 +29,12 @@ public class ClienteInfraRepository implements ClienteRepository {
 		return cliente;
 	}
 
+	@Override
+	public Cliente buscaClientePorCpf(String cpf) {
+		log.info("[start] ClienteInfraRepository - buscaClientePorCpf");
+		Cliente cliente  = clienteSpringRepository.findByCpf(cpf)
+				.orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Cliente não encontrado para este CPF."));
+		log.info("[finish] ClienteInfraRepository - buscaClientePorCpf");
+		return cliente;
+	}
 }

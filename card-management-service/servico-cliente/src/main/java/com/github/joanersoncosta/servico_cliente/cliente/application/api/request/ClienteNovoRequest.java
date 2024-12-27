@@ -9,7 +9,7 @@ public record ClienteNovoRequest(
     @Schema(description = "Este é o nome do usuário", example = "Maria Santos")
     @NotBlank(message = "Campo nome não pode estar em branco.") String nome,
 
-    @Schema(description = "Este é o CPF do cliente", example = "123.456.789-00")
+    @Schema(description = "Este é o CPF do cliente", example = "639.207.520-82")
     @NotBlank(message = "Campo CPF não pode estar em branco.") String cpf,
 
     @Email(message = "O email deve ser válido.")
