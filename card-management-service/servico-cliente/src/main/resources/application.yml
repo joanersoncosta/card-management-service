@@ -1,8 +1,12 @@
+server:
+    servlet:
+      context-path: /servico-cliente/api
+
 spring:
     application:
-        name: servico-cliente
+      name: servico-cliente
     profiles:    
-        active: ${PROFILE_ACTIVE:default}
+      active: ${PROFILE_ACTIVE:default}
 
     datasource:
       driver-class-name: org.postgresql.Driver
@@ -22,7 +26,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: health, info
+        include: health, info, refresh
   endpoint:
     health:
       show-details: always

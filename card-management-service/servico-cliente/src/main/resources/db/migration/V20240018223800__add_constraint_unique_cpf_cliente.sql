@@ -1,0 +1,1 @@
+ALTER TABLE cliente ADD CONSTRAINT cliente_unique UNIQUE (cpf);
