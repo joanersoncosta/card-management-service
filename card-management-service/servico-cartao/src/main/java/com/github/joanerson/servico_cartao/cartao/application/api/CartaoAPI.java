@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.github.joanerson.servico_cartao.cartao.application.api.response.CartaoNovoResponse;
-import com.github.joanerson.servico_cartao.cartao.domain.Cartao;
+import com.github.joanerson.servico_cartao.cartao.application.api.response.CartaoResponse;
 import com.github.joanerson.servico_cartao.handler.ErrorApiResponse;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -38,11 +38,11 @@ public interface CartaoAPI {
 
 	@Operation(summary = "Obtém os cartões com renda até o valor informado", description = "Este endpoint retorna uma lista de cartões disponíveis para clientes com a renda até o valor especificado no parâmetro 'renda'.", parameters = {
 			@Parameter(name = "renda", description = "Valor máximo da renda mensal para filtrar os cartões", required = true, example = "5000") }, responses = {
-					@ApiResponse(responseCode = "200", description = "Lista de cartões encontrados", content = @Content(mediaType = "application/json", schema = @Schema(implementation = Cartao.class))),
+					@ApiResponse(responseCode = "200", description = "Lista de cartões encontrados", content = @Content(mediaType = "application/json", schema = @Schema(implementation = CartaoResponse.class))),
 					@ApiResponse(responseCode = "400", description = "Requisição inválida"),
 					@ApiResponse(responseCode = "404", description = "Nenhum cartão encontrado para a renda especificada."),
 					@ApiResponse(responseCode = "500", description = "Erro interno do servidor.", content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = ErrorApiResponse.class)))})
 	@ResponseStatus(code = HttpStatus.OK)
 	@GetMapping
-	List<Cartao> getCartoesRendaAte(@RequestParam("renda") Long renda);
+	List<CartaoResponse> getCartoesRendaAte(@RequestParam("renda") Long renda);
 }

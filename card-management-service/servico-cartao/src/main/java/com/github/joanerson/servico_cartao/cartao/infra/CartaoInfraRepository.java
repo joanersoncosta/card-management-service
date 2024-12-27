@@ -1,5 +1,8 @@
 package com.github.joanerson.servico_cartao.cartao.infra;
 
+import java.math.BigDecimal;
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import com.github.joanerson.servico_cartao.cartao.application.repository.CartaoRepository;
@@ -20,6 +23,14 @@ public class CartaoInfraRepository implements CartaoRepository {
 		cartaoSpringDataJpaRepository.save(cartao);
 		log.info("[finish] CartaoInfraRepository - salva");
 		return cartao;
+	}
+
+	@Override
+	public List<Cartao> CartoesRendaMenorIgual(BigDecimal rendaBigDecimal) {
+		log.info("[start] CartaoInfraRepository - CartoesRendaMenorIgual");
+		List<Cartao> cartoes = cartaoSpringDataJpaRepository.findByRendaLessThanEqual(rendaBigDecimal);
+		log.info("[finish] CartaoInfraRepository - CartoesRendaMenorIgual");
+		return cartoes;
 	}
 
 }

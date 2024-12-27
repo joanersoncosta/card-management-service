@@ -1,8 +1,12 @@
 package com.github.joanerson.servico_cartao.cartao.application.service;
 
+import java.math.BigDecimal;
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.github.joanerson.servico_cartao.cartao.application.api.CartaoNovoRequest;
+import com.github.joanerson.servico_cartao.cartao.application.api.response.CartaoResponse;
 import com.github.joanerson.servico_cartao.cartao.application.repository.CartaoRepository;
 import com.github.joanerson.servico_cartao.cartao.domain.Cartao;
 
@@ -21,6 +25,15 @@ public class CartaoApplicationService implements CartaoService {
 		log.debug("[clienteRequest] {}", cartaoRequest.toString());
 		cartaoRepository.salva(new Cartao(cartaoRequest));
 		log.info("[finish] CartaoApplicationService - criaNovoCartao");
+	}
+
+	@Override
+	public List<CartaoResponse> buscaCartoesRendaAte(Long renda) {
+		log.info("[start] CartaoApplicationService - buscaCartoesRendaAte");
+		BigDecimal rendaBigDecimal = BigDecimal.valueOf(renda);
+		List<Cartao> cartoes = cartaoRepository.CartoesRendaMenorIgual(rendaBigDecimal);
+		log.info("[finish] CartaoApplicationService - buscaCartoesRendaAte");
+		return CartaoResponse.converte(cartoes);
 	}
 
 }
