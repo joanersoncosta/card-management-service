@@ -2,7 +2,6 @@ package com.github.joanerson.servico_cartao.cartao.application.service;
 
 import java.math.BigDecimal;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -42,9 +41,9 @@ public class CartaoApplicationService implements CartaoService {
 	}
 
 	@Override
-	public Optional<ClienteCartaoResponse> buscaCartaoPorCpf(String cpf) {
+	public List<ClienteCartaoResponse> buscaCartaoPorCpf(String cpf) {
 		log.info("[start] CartaoApplicationService - buscaCartaoPorCpf");
-		Optional<ClienteCartao> clienteResponse = clienteCartaoService.buscaCartaoPorCpf(cpf);
+		List<ClienteCartao> clienteResponse = clienteCartaoService.buscaCartaoPorCpf(cpf);
 		log.info("[finish] CartaoApplicationService - buscaCartaoPorCpf");
 		return ClienteCartaoResponse.converte(clienteResponse);
 	}

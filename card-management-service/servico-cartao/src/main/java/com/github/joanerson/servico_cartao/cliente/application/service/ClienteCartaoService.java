@@ -1,9 +1,9 @@
 package com.github.joanerson.servico_cartao.cliente.application.service;
 
-import java.util.Optional;
+import java.util.List;
 
 import com.github.joanerson.servico_cartao.cliente.domain.ClienteCartao;
 
 public interface ClienteCartaoService {
-	Optional<ClienteCartao> buscaCartaoPorCpf(String cpf);
+	List<ClienteCartao> buscaCartaoPorCpf(String cpf);
 }

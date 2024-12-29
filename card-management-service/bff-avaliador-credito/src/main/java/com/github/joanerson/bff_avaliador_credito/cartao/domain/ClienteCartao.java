@@ -9,10 +9,9 @@ import lombok.NoArgsConstructor;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class Cartao {
-    private UUID idCartao;
-    private String nome;
-    private CartaoBandeira bandeira;
-    private BigDecimal renda;
-    private BigDecimal limiteBasico;
+public class ClienteCartao {
+	private UUID idClienteCartao;
+	private String cpf;
+	private UUID idCartao;
+	private BigDecimal limite;
 }

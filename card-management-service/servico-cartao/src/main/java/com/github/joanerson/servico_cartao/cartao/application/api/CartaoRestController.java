@@ -1,7 +1,6 @@
 package com.github.joanerson.servico_cartao.cartao.application.api;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.web.bind.annotation.RestController;
 
@@ -35,9 +34,9 @@ public class CartaoRestController implements CartaoAPI {
 	}
 
 	@Override
-	public Optional<ClienteCartaoResponse> getBuscaCartaoPorCpfResponse(String cpf) {
+	public List<ClienteCartaoResponse> getBuscaCartaoPorCpfResponse(String cpf) {
 		log.info("[start] CartaoRestController - getBuscaCartaoPorCpfResponse");
-		Optional<ClienteCartaoResponse> response= cartaoService.buscaCartaoPorCpf(cpf);
+		List<ClienteCartaoResponse> response= cartaoService.buscaCartaoPorCpf(cpf);
 		log.info("[finish] CartaoRestController - getBuscaCartaoPorCpfResponse");
 		return response;
 	}

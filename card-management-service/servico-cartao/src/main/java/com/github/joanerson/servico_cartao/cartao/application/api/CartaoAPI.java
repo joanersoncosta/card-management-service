@@ -1,7 +1,6 @@
 package com.github.joanerson.servico_cartao.cartao.application.api;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,13 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.github.joanerson.servico_cartao.cartao.application.api.request.CartaoNovoRequest;
 import com.github.joanerson.servico_cartao.cartao.application.api.response.CartaoResponse;
 import com.github.joanerson.servico_cartao.cartao.application.api.response.ClienteCartaoResponse;
+import com.github.joanerson.servico_cartao.config.swagger.DocumentaBuscaCartaoComCpf;
+import com.github.joanerson.servico_cartao.config.swagger.DocumentaCriacaoCartao;
 import com.github.joanerson.servico_cartao.config.swagger.DocumentaListaCartoesRenda;
 
 import io.swagger.v3.oas.annotations.Parameter;
-
-import com.github.joanerson.servico_cartao.config.swagger.DocumentaBuscaCartaoComCpf;
-import com.github.joanerson.servico_cartao.config.swagger.DocumentaCriacaoCartao;
-
 import jakarta.validation.Valid;
 
 @RestController
@@ -41,5 +38,5 @@ public interface CartaoAPI {
 	@DocumentaBuscaCartaoComCpf
 	@ResponseStatus(code = HttpStatus.OK)
 	@GetMapping(path = "/busca/cpf", params = "cpf")
-	Optional<ClienteCartaoResponse> getBuscaCartaoPorCpfResponse(@RequestParam("cpf") @Parameter(example = "639.207.520-82") String cpf);
+	List<ClienteCartaoResponse> getBuscaCartaoPorCpfResponse(@RequestParam("cpf") @Parameter(example = "639.207.520-82") String cpf);
 }

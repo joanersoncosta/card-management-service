@@ -1,8 +1,10 @@
 package com.github.joanerson.servico_cartao.cartao.application.api.response;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 import com.github.joanerson.servico_cartao.cliente.domain.ClienteCartao;
 
@@ -34,7 +36,9 @@ public class ClienteCartaoResponse {
 		this.limite = clienteCartao.getLimite();
 	}
 
-	public static Optional<ClienteCartaoResponse> converte(Optional<ClienteCartao> clienteResponse) {
-		return clienteResponse.map(ClienteCartaoResponse::new);
+	public static List<ClienteCartaoResponse> converte(List<ClienteCartao> clienteResponse) {
+		return clienteResponse.stream()
+				.map(ClienteCartaoResponse::new)
+				.collect(Collectors.toList());
 	}
 }

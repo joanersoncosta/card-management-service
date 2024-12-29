@@ -1,6 +1,6 @@
 package com.github.joanerson.servico_cartao.cliente.infra;
 
-import java.util.Optional;
+import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
@@ -17,9 +17,9 @@ public class ClienteCartaoInfraRepository implements ClienteCartaoRepository {
 	private final ClienteCartaoSpringDataJpaRepository clienteCartaoSpringDataJpaRepository;
 
 	@Override
-	public Optional<ClienteCartao> buscaCartaoPorCpf(String cpf) {
+	public List<ClienteCartao> buscaCartaoPorCpf(String cpf) {
 		log.info("[start] ClienteCartaoInfraRepository - buscaCartaoPorCpf");
-		Optional<ClienteCartao> clienteCartao = clienteCartaoSpringDataJpaRepository.findByCpf(cpf);
+		List<ClienteCartao> clienteCartao = clienteCartaoSpringDataJpaRepository.findByCpf(cpf);
 		log.info("[finish] ClienteCartaoInfraRepository - buscaCartaoPorCpf");
 		return clienteCartao;
 	}

@@ -1,6 +1,6 @@
 package com.github.joanerson.servico_cartao.cliente.application.service;
 
-import java.util.Optional;
+import java.util.List;
 
 import org.springframework.stereotype.Service;
 
@@ -17,9 +17,9 @@ public class ClienteCartaoApplicationService implements ClienteCartaoService {
 	private final ClienteCartaoRepository clienteCartaoRepository;
 	
 	@Override
-	public Optional<ClienteCartao> buscaCartaoPorCpf(String cpf) {
+	public List<ClienteCartao> buscaCartaoPorCpf(String cpf) {
 		log.info("[start] ClienteCartaoApplicationService - buscaCartaoPorCpf");
-		Optional<ClienteCartao> clienteCartao = clienteCartaoRepository.buscaCartaoPorCpf(cpf);
+		List<ClienteCartao> clienteCartao = clienteCartaoRepository.buscaCartaoPorCpf(cpf);
 		log.info("[finish] ClienteCartaoApplicationService - buscaCartaoPorCpf");
 		return clienteCartao;
 	}

@@ -1,3 +1,30 @@
+server:
+    servlet:
+      context-path: /bff-avaliador-credito/api
+
 spring:
   application:
     name: bff-avaliador-credito
+  profiles:    
+    active: ${PROFILE_ACTIVE:default}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, refresh
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  level:
+    com.github.joanersoncosta.bff_avaliador_credito: ${LOG_LEVEL:DEBUG}
+
+springdoc:
+  openapi:
+    title: BFF Avaliador Credito
+    description: Micro-Serviço Avaliador Credito
+    version: 1.0.0      
+  swagger-ui:
+    path: /swagger    
