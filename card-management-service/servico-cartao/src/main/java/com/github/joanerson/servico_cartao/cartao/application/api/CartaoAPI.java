@@ -1,5 +1,6 @@
 package com.github.joanerson.servico_cartao.cartao.application.api;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
@@ -33,7 +34,7 @@ public interface CartaoAPI {
 	@DocumentaListaCartoesRenda	
 	@ResponseStatus(code = HttpStatus.OK)
 	@GetMapping(path = "/busca/renda", params = "renda")
-	List<CartaoResponse> getCartoesRendaAte(@RequestParam("renda") @Parameter(example = "4000") Long renda);
+	List<CartaoResponse> getCartoesRendaAte(@RequestParam("renda") @Parameter(example = "4000.00") BigDecimal renda);
 	
 	@DocumentaBuscaCartaoComCpf
 	@ResponseStatus(code = HttpStatus.OK)

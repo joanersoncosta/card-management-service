@@ -1,5 +1,6 @@
 package com.github.joanerson.servico_cartao.cartao.application.api;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.RestController;
@@ -26,7 +27,7 @@ public class CartaoRestController implements CartaoAPI {
 	}
 	
 	@Override
-	public List<CartaoResponse> getCartoesRendaAte(Long renda) {
+	public List<CartaoResponse> getCartoesRendaAte(BigDecimal renda) {
 		log.info("[start] CartaoRestController - getCartoesRendaAte");
 		List<CartaoResponse> response= cartaoService.buscaCartoesRendaAte(renda);
 		log.info("[finish] CartaoRestController - getCartoesRendaAte");

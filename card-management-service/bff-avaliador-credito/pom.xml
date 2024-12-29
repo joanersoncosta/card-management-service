@@ -17,8 +17,6 @@
 		orquestra chamadas aos microserviços, como api-cliente e api-cartao,
 		fornecendo dados otimizados e adaptados para o frontend, simplificando a
 		comunicação e melhorando a performance.
-
-
 	</description>
 	<url />
 	<licenses>
@@ -64,6 +62,12 @@
 			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
 			<version>2.0.4</version>
 		</dependency>
+		<!-- webflux -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webflux</artifactId>
+		</dependency>
+
 	</dependencies>
 
 	<build>

@@ -21,6 +21,6 @@ public record SituacaoCliente(
 
     @Schema(description = "Idade do cliente", example = "30")
     Integer idade,
+    @Schema(description = "Cartão do cliente", implementation = ClienteCartao.class)
     List<ClienteCartao> cartaoCliente
-
 ) {}

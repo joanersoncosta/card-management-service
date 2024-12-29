@@ -32,10 +32,9 @@ public class CartaoApplicationService implements CartaoService {
 	}
 
 	@Override
-	public List<CartaoResponse> buscaCartoesRendaAte(Long renda) {
+	public List<CartaoResponse> buscaCartoesRendaAte(BigDecimal renda) {
 		log.info("[start] CartaoApplicationService - buscaCartoesRendaAte");
-		BigDecimal rendaBigDecimal = BigDecimal.valueOf(renda);
-		List<Cartao> cartoes = cartaoRepository.CartoesRendaMenorIgual(rendaBigDecimal);
+		List<Cartao> cartoes = cartaoRepository.CartoesRendaMenorIgual(renda);
 		log.info("[finish] CartaoApplicationService - buscaCartoesRendaAte");
 		return CartaoResponse.converte(cartoes);
 	}
