@@ -3,6 +3,7 @@ package com.github.joanerson.servico_cartao.cartao.application.api.response;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 import com.github.joanerson.servico_cartao.cartao.domain.Cartao;
 import com.github.joanerson.servico_cartao.cartao.domain.CartaoBandeira;
@@ -28,6 +29,8 @@ public class CartaoResponse {
 	}
 	
 	public static List<CartaoResponse> converte(List<Cartao> cartoes) {
-		return null;
+		return cartoes.stream()
+				.map(CartaoResponse::new)
+				.collect(Collectors.toList());
 	}
 }

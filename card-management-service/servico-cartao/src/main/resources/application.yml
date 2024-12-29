@@ -1,0 +1,44 @@
+server:
+    servlet:
+      context-path: /servico-cartao/api
+
+spring:
+    application:
+      name: servico-cartao
+    profiles:    
+      active: ${PROFILE_ACTIVE:default}
+
+    datasource:
+      driver-class-name: org.postgresql.Driver
+      url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/card_management_cartaodb?currentSchema=cartao-api}
+      username: ${SPRING_DATASOURCE_USERNAME:postgres}
+      password: ${SPRING_DATASOURCE_PASSWORD:postgres}
+      type: com.zaxxer.hikari.HikariDataSource
+      hikari:
+        poolName: SpringBootJPAHikariCP
+        minimumIdle: 15
+        maximumPoolSize: 50
+        connectionTimeout: 30000
+        idleTimeout: 30000
+        maxLifetime: 1000000
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, refresh
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  level:
+    com.github.joanersoncosta.servico_cartao: ${LOG_LEVEL:DEBUG}
+
+springdoc:
+  openapi:
+    title: Cartao API
+    description: Micro-Servico de cartão
+    version: 1.0.0      
+  swagger-ui:
+    path: /swagger

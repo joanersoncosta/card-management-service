@@ -3,7 +3,10 @@ package com.github.joanerson.servico_cartao.cartao.domain;
 import java.math.BigDecimal;
 import java.util.UUID;
 
+import org.springframework.http.HttpStatus;
+
 import com.github.joanerson.servico_cartao.cartao.application.api.CartaoNovoRequest;
+import com.github.joanerson.servico_cartao.handler.APIException;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -38,8 +41,13 @@ public class Cartao {
 	
 	public Cartao(CartaoNovoRequest cartaoRequest) {
 		this.nome = cartaoRequest.nome();
-		this.bandeira = cartaoRequest.bandeira();
+		this.bandeira = retornaBandeira(cartaoRequest.bandeira());
 		this.renda = cartaoRequest.renda();
 		this.limiteBasico = cartaoRequest.limite();
+	}
+	
+	private CartaoBandeira retornaBandeira(String bandeira) {
+		return CartaoBandeira.validaBandeira(bandeira)
+	            .orElseThrow(() -> APIException.build(HttpStatus.BAD_REQUEST, "Bandeira inválida, digite novamente."));
 	}
 }

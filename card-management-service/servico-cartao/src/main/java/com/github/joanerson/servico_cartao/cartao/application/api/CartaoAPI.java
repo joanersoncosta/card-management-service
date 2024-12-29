@@ -40,7 +40,6 @@ public interface CartaoAPI {
 			@Parameter(name = "renda", description = "Valor máximo da renda mensal para filtrar os cartões", required = true, example = "5000") }, responses = {
 					@ApiResponse(responseCode = "200", description = "Lista de cartões encontrados", content = @Content(mediaType = "application/json", schema = @Schema(implementation = CartaoResponse.class))),
 					@ApiResponse(responseCode = "400", description = "Requisição inválida"),
-					@ApiResponse(responseCode = "404", description = "Nenhum cartão encontrado para a renda especificada."),
 					@ApiResponse(responseCode = "500", description = "Erro interno do servidor.", content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = ErrorApiResponse.class)))})
 	@ResponseStatus(code = HttpStatus.OK)
 	@GetMapping

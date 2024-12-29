@@ -21,7 +21,6 @@ public class CartaoRestController implements CartaoAPI {
 		log.info("[start] CartaoRestController - postNovoCartao");
 		cartaoService.criaNovoCartao(cartaoRequest);
 		log.info("[finish] CartaoRestController - postNovoCartao");
-
 	}
 	
 	@Override
