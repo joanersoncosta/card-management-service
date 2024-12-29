@@ -7,7 +7,7 @@ import java.lang.annotation.Target;
 
 import org.springframework.http.MediaType;
 
-import com.github.joanerson.servico_cartao.cartao.application.api.response.CartaoResponse;
+import com.github.joanerson.servico_cartao.cartao.application.api.response.ClienteCartaoResponse;
 import com.github.joanerson.servico_cartao.handler.ErrorApiResponse;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -16,19 +16,19 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 
-@Target(ElementType.METHOD) // A anotação será aplicada a métodos
-@Retention(RetentionPolicy.RUNTIME) // A anotação estará disponível em tempo de execução
+@Target(ElementType.METHOD)
+@Retention(RetentionPolicy.RUNTIME)
 @Operation(
     summary = "Obtém os cartões com cpf",
-    description = "Este endpoint retorna uma lista de cartões disponíveis para clientes com a renda até o valor especificado no parâmetro 'renda'.",
+    description = "Este endpoint retorna o cartão do clientes pelo 'CPF'.",
     parameters = {
-        @Parameter(name = "renda", description = "Valor máximo da renda mensal para filtrar os cartões", required = true, example = "5000")
+        @Parameter(name = "cpf", description = "CPF do cliente", required = true, example = "639.207.520-82")
     },
     responses = {
         @ApiResponse(
             responseCode = "200",
             description = "Cartão encontrado",
-            content = @Content(mediaType = "application/json", schema = @Schema(implementation = CartaoResponse.class))
+            content = @Content(mediaType = "application/json", schema = @Schema(implementation = ClienteCartaoResponse.class))
         ),
         @ApiResponse(
             responseCode = "404",

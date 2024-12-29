@@ -24,7 +24,7 @@ public class ClienteCartao {
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(columnDefinition = "uuid", name = "id_cliente_cartao")
-	private Long idClienteCartao;
+	private UUID idClienteCartao;
     @Column(name = "cpf")
 	private String cpf;
     @Column(columnDefinition = "uuid", name = "id_cartao")
@@ -32,7 +32,7 @@ public class ClienteCartao {
     @Column(name = "limite")
 	private BigDecimal limite;
 	
-	public ClienteCartao(Long idClienteCartao, String cpf, UUID idCartao, BigDecimal limite) {
+	public ClienteCartao(UUID idClienteCartao, String cpf, UUID idCartao, BigDecimal limite) {
 		this.idClienteCartao = idClienteCartao;
 		this.cpf = cpf;
 		this.idCartao = idCartao;

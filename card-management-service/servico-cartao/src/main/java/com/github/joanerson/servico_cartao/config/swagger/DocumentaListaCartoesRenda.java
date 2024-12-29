@@ -17,7 +17,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 @Operation(
-    summary = "Obtém os cartões com CPF",
+    summary = "Obtém os cartões disponiveis pela renda",
     description = "Este endpoint retorna uma lista de cartões disponíveis para clientes com a renda até o valor especificado no parâmetro 'renda'.",
     parameters = {
         @Parameter(name = "renda", description = "Valor máximo da renda mensal para filtrar os cartões", required = true, example = "5000")
@@ -30,7 +30,8 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
         ),
         @ApiResponse(
             responseCode = "404",
-            description = "Nenhum cartão encontrado para este CPF"
+            description = "Nenhum cartão encontrado para este CPF",
+            content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorApiResponse.class))
         ),
         @ApiResponse(
             responseCode = "500",

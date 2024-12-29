@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.github.joanerson.servico_cartao.cartao.application.api.request.CartaoNovoRequest;
 import com.github.joanerson.servico_cartao.cartao.application.api.response.CartaoResponse;
+import com.github.joanerson.servico_cartao.cartao.application.api.response.ClienteCartaoResponse;
 import com.github.joanerson.servico_cartao.cartao.application.service.CartaoService;
 
 import lombok.RequiredArgsConstructor;
@@ -34,11 +35,10 @@ public class CartaoRestController implements CartaoAPI {
 	}
 
 	@Override
-	public Optional<CartaoResponse> getCartoesPorClienteResponse(String cpf) {
-		log.info("[start] CartaoRestController - getCartoesPorClienteResponse");
-		Optional<CartaoResponse> response= cartaoService.buscaCartoesPorCliente(cpf);
-		log.info("[finish] CartaoRestController - getCartoesPorClienteResponse");
+	public Optional<ClienteCartaoResponse> getBuscaCartaoPorCpfResponse(String cpf) {
+		log.info("[start] CartaoRestController - getBuscaCartaoPorCpfResponse");
+		Optional<ClienteCartaoResponse> response= cartaoService.buscaCartaoPorCpf(cpf);
+		log.info("[finish] CartaoRestController - getBuscaCartaoPorCpfResponse");
 		return response;
 	}
-
 }
