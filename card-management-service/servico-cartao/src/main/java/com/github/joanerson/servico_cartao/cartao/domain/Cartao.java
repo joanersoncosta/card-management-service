@@ -5,7 +5,7 @@ import java.util.UUID;
 
 import org.springframework.http.HttpStatus;
 
-import com.github.joanerson.servico_cartao.cartao.application.api.CartaoNovoRequest;
+import com.github.joanerson.servico_cartao.cartao.application.api.request.CartaoNovoRequest;
 import com.github.joanerson.servico_cartao.handler.APIException;
 
 import jakarta.persistence.Column;

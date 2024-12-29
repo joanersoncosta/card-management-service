@@ -1,4 +1,4 @@
-package com.github.joanerson.servico_cartao.cartao.application.api;
+package com.github.joanerson.servico_cartao.cartao.application.api.request;
 
 import java.math.BigDecimal;
 
