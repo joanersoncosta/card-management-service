@@ -27,4 +27,8 @@ springdoc:
     description: Micro-Serviço Avaliador Credito
     version: 1.0.0      
   swagger-ui:
-    path: /swagger    
+    path: /swagger  
+    
+url:
+    alb:  
+      cliente: ${URL_ALB_CLIENTE:http://localhost:8081}  

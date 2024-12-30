@@ -5,9 +5,11 @@ import java.util.UUID;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Getter
 @NoArgsConstructor
+@ToString
 public class Cliente {
 	@Schema(description = "ID único do cliente", example = "f9d0bde5-0f9a-4a5b-bc8d-f24f89ed3a5b")
     private UUID idCliente;
