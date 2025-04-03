@@ -1,9 +1,6 @@
-package com.github.joanersoncosta.servico_cliente.cliente.application.api.response;
+package com.github.joanerson.bff_avaliador_credito.cliente.application.api.response;
 
-import java.util.List;
 import java.util.UUID;
-
-import com.github.joanersoncosta.servico_cliente.cliente.domain.Cliente;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
@@ -22,16 +19,4 @@ public class ClienteResponse {
     private String email;
     @Schema(description = "Idade do cliente", example = "30")
     private Integer idade;
-    
-    public ClienteResponse(Cliente cliente) {
-		this.idCliente = cliente.getIdCliente();
-		this.nome = cliente.getNome();
-		this.cpf = cliente.getCpf();
-		this.email = cliente.getEmail();
-		this.idade = cliente.getIdade();
-	}
-
-	public static List<ClienteResponse> converte(List<Cliente> clientes) {
-		return clientes.stream().map(ClienteResponse::new).toList();
-	}
 }

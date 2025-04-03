@@ -14,4 +14,5 @@ public interface CartaoService {
 	List<CartaoResponse> buscaCartoesRendaAte(BigDecimal renda);
 	List<ClienteCartaoResponse> buscaCartaoPorCpf(String cpf);
 	CartaoDetalhadoResponse buscaCartaoPorId(UUID idCartao);
+	List<CartaoResponse> buscaCartoes();
 }

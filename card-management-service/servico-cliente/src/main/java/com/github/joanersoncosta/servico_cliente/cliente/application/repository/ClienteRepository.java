@@ -1,9 +1,11 @@
 package com.github.joanersoncosta.servico_cliente.cliente.application.repository;
 
+import java.util.List;
+
 import com.github.joanersoncosta.servico_cliente.cliente.domain.Cliente;
 
 public interface ClienteRepository {
 	Cliente salva(Cliente cliente);
 	Cliente buscaClientePorCpf(String cpf);
-
+	List<Cliente> buscaClientes();
 }

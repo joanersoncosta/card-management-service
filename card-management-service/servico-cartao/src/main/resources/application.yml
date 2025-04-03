@@ -1,6 +1,7 @@
 server:
-    servlet:
-      context-path: /servico-cartao/api
+  servlet:
+    context-path: /servico-cartao/api
+  port: 8082
 
 spring:
     application:
@@ -10,7 +11,7 @@ spring:
 
     datasource:
       driver-class-name: org.postgresql.Driver
-      url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/card_management_cartaodb?currentSchema=cartao-api}
+      url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/card_management?currentSchema=cartaodb}
       username: ${SPRING_DATASOURCE_USERNAME:postgres}
       password: ${SPRING_DATASOURCE_PASSWORD:postgres}
       type: com.zaxxer.hikari.HikariDataSource

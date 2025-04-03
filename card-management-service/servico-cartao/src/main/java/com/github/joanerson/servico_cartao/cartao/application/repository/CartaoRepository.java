@@ -10,4 +10,5 @@ public interface CartaoRepository {
 	Cartao salva(Cartao cartao);
 	List<Cartao> CartoesRendaMenorIgual(BigDecimal rendaBigDecimal);
 	Cartao buscaCartaoPorId(UUID idCartao);
+	List<Cartao> buscaCartoes();
 }

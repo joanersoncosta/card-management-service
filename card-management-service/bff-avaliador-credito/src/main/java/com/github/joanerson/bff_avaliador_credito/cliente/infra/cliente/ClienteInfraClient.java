@@ -39,7 +39,7 @@ public class ClienteInfraClient implements ClienteInfraService {
                         .scheme("http")
                         .host("localhost")
                         .port(8081)
-                        .path("/servico-cliente/api/v1/cliente/buscar/cpf")
+                        .path("/servico-cliente/api/v1/cliente/busca/cpf")
                         .queryParam("cpf", cpf)
                         .build())
                 .retrieve()

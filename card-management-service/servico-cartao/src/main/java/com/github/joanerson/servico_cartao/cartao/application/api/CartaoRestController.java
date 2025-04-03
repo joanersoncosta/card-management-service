@@ -51,4 +51,12 @@ public class CartaoRestController implements CartaoAPI {
 		log.info("[finish] CartaoRestController - getCartaoPorId");
 		return response;
 	}
+
+	@Override
+	public List<CartaoResponse> getListaCartoes() {
+		log.info("[start] CartaoRestController - getListaCartoes");
+		List<CartaoResponse> response= cartaoService.buscaCartoes();
+		log.info("[finish] CartaoRestController - getListaCartoes");
+		return response;
+	}
 }

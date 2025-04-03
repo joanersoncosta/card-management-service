@@ -10,7 +10,7 @@ spring:
 
     datasource:
       driver-class-name: org.postgresql.Driver
-      url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/card_management_clientedb?currentSchema=cliente-api}
+      url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/card_management?currentSchema=clientedb}
       username: ${SPRING_DATASOURCE_USERNAME:postgres}
       password: ${SPRING_DATASOURCE_PASSWORD:postgres}
       type: com.zaxxer.hikari.HikariDataSource

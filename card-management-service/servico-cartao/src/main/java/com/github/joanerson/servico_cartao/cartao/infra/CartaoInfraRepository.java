@@ -44,4 +44,12 @@ public class CartaoInfraRepository implements CartaoRepository {
 		log.info("[finish] CartaoInfraRepository - CartoesRendaMenorIgual");
 		return cartao;
 	}
+
+	@Override
+	public List<Cartao> buscaCartoes() {
+		log.info("[start] CartaoInfraRepository - CartoesRendaMenorIgual");
+		List<Cartao> cartoes = cartaoSpringDataJpaRepository.findAll();
+		log.info("[finish] CartaoInfraRepository - CartoesRendaMenorIgual");
+		return cartoes;
+	}
 }

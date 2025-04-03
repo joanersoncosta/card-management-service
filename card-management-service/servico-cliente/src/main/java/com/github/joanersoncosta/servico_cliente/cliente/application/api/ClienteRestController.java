@@ -1,5 +1,7 @@
 package com.github.joanersoncosta.servico_cliente.cliente.application.api;
 
+import java.util.List;
+
 import org.springframework.web.bind.annotation.RestController;
 
 import com.github.joanersoncosta.servico_cliente.cliente.application.api.request.ClienteNovoRequest;
@@ -30,6 +32,14 @@ public class ClienteRestController implements ClienteAPI {
 		ClienteResponse clienteResponse = clienteService.buscaClientePorCpf(cpf);
 		log.info("[finish] ClienteRestController - buscaClientePorCpf");
 		return clienteResponse;
+	}
+
+	@Override
+	public List<ClienteResponse> buscaClientes() {
+		log.info("[start] ClienteRestController - buscaClientes");
+		List<ClienteResponse> response = clienteService.buscaClientes();
+		log.info("[finish] ClienteRestController - buscaClientes");
+		return response;
 	}
 
 }

@@ -31,5 +31,5 @@ springdoc:
     
 url:
   alb:  
-    cliente: ${URL_ALB_CLIENTE:http://localhost:8081}  
+    cliente: ${URL_ALB_CLIENTE:http://localhost:8081/servico-cliente/api}  
     cartao: ${URL_ALB_CARTAO:http://localhost:8082}  

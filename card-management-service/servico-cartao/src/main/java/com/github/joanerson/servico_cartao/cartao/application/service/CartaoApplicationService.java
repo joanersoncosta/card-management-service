@@ -60,4 +60,12 @@ public class CartaoApplicationService implements CartaoService {
 		log.info("[finish] CartaoApplicationService - buscaCartaoPorId");
 		return CartaoDetalhadoResponse.converte(cartao);
 	}
+
+	@Override
+	public List<CartaoResponse> buscaCartoes() {
+		log.info("[start] CartaoApplicationService - buscaCartoes");
+		List<Cartao> cartoes = cartaoRepository.buscaCartoes();
+		log.info("[finish] CartaoApplicationService - buscaCartoes");
+		return CartaoResponse.converte(cartoes);
+	}
 }

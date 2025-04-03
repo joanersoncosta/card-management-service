@@ -1,5 +1,7 @@
 package com.github.joanersoncosta.servico_cliente.cliente.infra;
 
+import java.util.List;
+
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
@@ -36,5 +38,13 @@ public class ClienteInfraRepository implements ClienteRepository {
 				.orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Cliente não encontrado para este CPF."));
 		log.info("[finish] ClienteInfraRepository - buscaClientePorCpf");
 		return cliente;
+	}
+
+	@Override
+	public List<Cliente> buscaClientes() {
+		log.info("[start] ClienteInfraRepository - buscaClientes");
+		List<Cliente> clientes  = clienteSpringRepository.findAll();
+		log.info("[finish] ClienteInfraRepository - buscaClientes");
+		return clientes;
 	}
 }

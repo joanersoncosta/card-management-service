@@ -1,5 +1,7 @@
 package com.github.joanersoncosta.servico_cliente.cliente.application.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.github.joanersoncosta.servico_cliente.cliente.application.api.request.ClienteNovoRequest;
@@ -32,6 +34,14 @@ public class ClienteApplicationService implements ClienteService {
 		Cliente cliente = clienteRepository.buscaClientePorCpf(cpf);
 		log.info("[finish] ClienteRestController - buscaClientePorCpf");
 		return new ClienteResponse(cliente);
+	}
+
+	@Override
+	public List<ClienteResponse> buscaClientes() {
+		log.info("[start] ClienteRestController - buscaClientes");
+		List<Cliente> clientes = clienteRepository.buscaClientes();
+		log.info("[finish] ClienteRestController - buscaClientes");
+		return ClienteResponse.converte(clientes);
 	}
 
 }

@@ -1,5 +1,7 @@
 package com.github.joanersoncosta.servico_cliente.cliente.application.service;
 
+import java.util.List;
+
 import com.github.joanersoncosta.servico_cliente.cliente.application.api.request.ClienteNovoRequest;
 import com.github.joanersoncosta.servico_cliente.cliente.application.api.response.ClienteCriadoResponse;
 import com.github.joanersoncosta.servico_cliente.cliente.application.api.response.ClienteResponse;
@@ -7,5 +9,5 @@ import com.github.joanersoncosta.servico_cliente.cliente.application.api.respons
 public interface ClienteService {
 	ClienteCriadoResponse criaNovoCliente(ClienteNovoRequest clienteRequest);
 	ClienteResponse buscaClientePorCpf(String cpf);
-
+	List<ClienteResponse> buscaClientes();
 }
