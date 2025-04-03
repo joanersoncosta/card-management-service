@@ -2,10 +2,12 @@ package com.github.joanerson.servico_cartao.cartao.application.api;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.web.bind.annotation.RestController;
 
 import com.github.joanerson.servico_cartao.cartao.application.api.request.CartaoNovoRequest;
+import com.github.joanerson.servico_cartao.cartao.application.api.response.CartaoDetalhadoResponse;
 import com.github.joanerson.servico_cartao.cartao.application.api.response.CartaoResponse;
 import com.github.joanerson.servico_cartao.cartao.application.api.response.ClienteCartaoResponse;
 import com.github.joanerson.servico_cartao.cartao.application.service.CartaoService;
@@ -39,6 +41,14 @@ public class CartaoRestController implements CartaoAPI {
 		log.info("[start] CartaoRestController - getBuscaCartaoPorCpfResponse");
 		List<ClienteCartaoResponse> response= cartaoService.buscaCartaoPorCpf(cpf);
 		log.info("[finish] CartaoRestController - getBuscaCartaoPorCpfResponse");
+		return response;
+	}
+
+	@Override
+	public CartaoDetalhadoResponse getCartaoPorId(UUID idCartao) {
+		log.info("[start] CartaoRestController - getCartaoPorId");
+		CartaoDetalhadoResponse response= cartaoService.buscaCartaoPorId(idCartao);
+		log.info("[finish] CartaoRestController - getCartaoPorId");
 		return response;
 	}
 }

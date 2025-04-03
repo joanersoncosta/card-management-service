@@ -43,6 +43,5 @@ public interface ClienteAPI {
 			@ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = ErrorApiResponse.class))) })
 	@ResponseStatus(code = HttpStatus.OK)
 	@GetMapping("/busca/cpf")
-	ClienteResponse buscaClientePorCpf(@RequestParam(value = "cpf") String cpf);
-
+	ClienteResponse buscaClientePorCpf(@RequestParam() String cpf);
 }

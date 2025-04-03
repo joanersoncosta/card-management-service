@@ -23,5 +23,4 @@ public class ClienteCartaoInfraRepository implements ClienteCartaoRepository {
 		log.info("[finish] ClienteCartaoInfraRepository - buscaCartaoPorCpf");
 		return clienteCartao;
 	}
-
 }

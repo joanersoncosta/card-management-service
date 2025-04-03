@@ -1,6 +1,5 @@
 package com.github.joanerson.servico_cartao.cartao.application.api.response;
 
-import java.math.BigDecimal;
 import java.util.UUID;
 
 import com.github.joanerson.servico_cartao.cartao.domain.Cartao;
@@ -12,8 +11,8 @@ import lombok.NoArgsConstructor;
 
 @Getter
 @NoArgsConstructor
-@Schema(description = "Informações sobre o cartão de crédito de um cliente")
-public class ClienteCartaoResponse {
+@Schema(description = "Informações detalhadas sobre o cartão de crédito")
+public class CartaoDetalhadoResponse {
 
     @Schema(description = "Identificador único do cartão", example = "b7234e19-65b1-42d0-9d23-f82613f7d29c")
     private UUID idCartao;
@@ -23,22 +22,14 @@ public class ClienteCartaoResponse {
 
     @Schema(description = "Bandeira do cartão, como VISA, MasterCard, etc.", example = "VISA")
     private CartaoBandeira bandeira;
-
-    @Schema(description = "Renda mensal do titular do cartão", example = "8000.00")
-    private BigDecimal renda;
-
-    @Schema(description = "Limite básico de crédito do cartão", example = "3000.00")
-    private BigDecimal limiteBasico;
-	
-	public ClienteCartaoResponse(Cartao cartao, BigDecimal limite) {
+    
+	public CartaoDetalhadoResponse(Cartao cartao) {
 		this.idCartao = cartao.getIdCartao();
 		this.nome = cartao.getNome();
 		this.bandeira = cartao.getBandeira();
-		this.renda = cartao.getRenda();
-		this.limiteBasico = limite;
 	}
-	
-	public static ClienteCartaoResponse converte(Cartao cartao, BigDecimal limite) {
-		return new ClienteCartaoResponse(cartao, limite);
+
+	public static CartaoDetalhadoResponse converte(Cartao cartao) {
+		return new CartaoDetalhadoResponse(cartao);
 	}
 }
