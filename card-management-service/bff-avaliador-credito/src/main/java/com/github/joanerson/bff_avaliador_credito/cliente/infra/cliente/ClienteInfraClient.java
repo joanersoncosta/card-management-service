@@ -1,11 +1,13 @@
 package com.github.joanerson.bff_avaliador_credito.cliente.infra.cliente;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.reactive.function.client.WebClientResponseException;
 
 import com.github.joanerson.bff_avaliador_credito.cliente.domain.Cliente;
+import com.github.joanerson.bff_avaliador_credito.handler.APIException;
 
 import lombok.extern.log4j.Log4j2;
 import reactor.core.publisher.Mono;
@@ -26,7 +28,6 @@ public class ClienteInfraClient implements ClienteInfraService {
         log.info("[start] ClienteInfraClient - buscaClientePorCpf");
         log.info("[urlServiceCliente] {}", urlServiceCliente);
         Cliente cliente = detalhaCliente(cpf);
-//        		.orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Cliente não encontrado para este CPF."));
         log.info("[finish] ClienteInfraClient - buscaClientePorCpf");
         return cliente;
     }

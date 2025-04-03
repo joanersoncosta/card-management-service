@@ -40,12 +40,11 @@ public interface AvaliadorCreditoAPI {
 	String getHome();
 	
 	@GetMapping(value = "/realiza/avaliacao", params = {"cpf", "renda"})
-	public List<CartaoAprovadoResponse> getRealizaAvaliacaoCliente(@RequestParam("cpf") @Parameter(example = "639.207.520-82") String cpf, @RequestParam("renda") @Parameter(example = "4000.00") BigDecimal renda);
+	public List<CartaoAprovadoResponse> getRealizaAvaliacaoCliente(@RequestParam @Parameter(example = "639.207.520-82") String cpf, @RequestParam @Parameter(example = "4000.00") BigDecimal renda);
 	
 	@GetMapping(value = "/situacao-cliente", params = "cpf")
-	public SituacaoCliente getConsultaSituacaoCliente(@RequestParam("cpf") @Parameter(example = "639.207.520-82") String cpf);
+	public SituacaoCliente getConsultaSituacaoCliente(@RequestParam @Parameter(example = "639.207.520-82") String cpf);
 	
 	@PostMapping(value = "/silicitacoes-cartao")
 	public ProtocoloSolicitacaoCartao postSolicitarCartao(@RequestBody DadosSolicitacaoEmissaoCartao dadosSolicitacaoEmissaoCartao);
-	
 }

@@ -1,10 +1,8 @@
 package com.github.joanerson.bff_avaliador_credito.avaliador.application.api.request;
 
-import java.math.BigDecimal;
 import java.util.UUID;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 
@@ -21,11 +19,6 @@ public record DadosSolicitacaoEmissaoCartao(
 
 		    @NotNull(message = "O CEP não pode ser nulo")
 		    @Schema(description = "Cep do seu endereço", example = "01001000")
-		    String cep,
-
-		    @NotNull(message = "O limite liberado não pode ser nulo")
-		    @DecimalMin(value = "300.00", inclusive = true, message = "O limite liberado deve ser maior ou igual a 300.00")
-		    @Schema(description = "Limite liberado para o cartão", example = "5000.00")
-		    BigDecimal limiteLiberado
+		    String cep
 	) {
 }
