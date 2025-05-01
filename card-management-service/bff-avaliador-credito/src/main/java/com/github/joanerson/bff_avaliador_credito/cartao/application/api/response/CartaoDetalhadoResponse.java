@@ -1,4 +1,4 @@
-package com.github.joanerson.bff_avaliador_credito.cartao.infra;
+package com.github.joanerson.bff_avaliador_credito.cartao.application.api.response;
 
 import java.util.UUID;
 

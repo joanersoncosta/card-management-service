@@ -10,6 +10,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.servlet.resource.NoResourceFoundException;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -40,5 +41,17 @@ public class RestResponseEntityExceptionHandler {
 			errors.put(fieldName, errorMessage);
 		});
 		return errors;
+	}
+	
+	@ExceptionHandler(NoResourceFoundException.class)
+	public ResponseEntity<ErrorApiResponse> handleNoResourceFoundException(NoResourceFoundException ex) {
+	    log.info("Recurso não encontrado: {}", ex.getMessage());
+
+	    return ResponseEntity
+	            .status(HttpStatus.NOT_FOUND)
+	            .body(ErrorApiResponse.builder()
+	                    .description("RECURSO NÃO ENCONTRADO")
+	                    .message("A url informada não foi encontrada. Verifique se está correto e tente novamente.")
+	                    .build());
 	}
 }

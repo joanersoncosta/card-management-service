@@ -10,9 +10,9 @@ import com.github.joanerson.bff_avaliador_credito.avaliador.application.api.requ
 import com.github.joanerson.bff_avaliador_credito.avaliador.application.api.request.ProtocoloSolicitacaoCartao;
 import com.github.joanerson.bff_avaliador_credito.avaliador.application.api.response.CartaoResponse;
 import com.github.joanerson.bff_avaliador_credito.avaliador.application.api.response.SituacaoCliente;
+import com.github.joanerson.bff_avaliador_credito.cartao.application.api.response.CartaoDetalhadoResponse;
 import com.github.joanerson.bff_avaliador_credito.cartao.application.service.CartaoService;
 import com.github.joanerson.bff_avaliador_credito.cartao.domain.ClienteCartao;
-import com.github.joanerson.bff_avaliador_credito.cartao.infra.CartaoDetalhadoResponse;
 import com.github.joanerson.bff_avaliador_credito.cliente.application.service.ClienteService;
 import com.github.joanerson.bff_avaliador_credito.cliente.domain.Cliente;
 

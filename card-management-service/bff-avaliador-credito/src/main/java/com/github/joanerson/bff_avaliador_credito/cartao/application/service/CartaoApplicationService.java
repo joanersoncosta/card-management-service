@@ -7,8 +7,8 @@ import java.util.UUID;
 import org.springframework.stereotype.Service;
 
 import com.github.joanerson.bff_avaliador_credito.avaliador.application.api.response.CartaoResponse;
+import com.github.joanerson.bff_avaliador_credito.cartao.application.api.response.CartaoDetalhadoResponse;
 import com.github.joanerson.bff_avaliador_credito.cartao.domain.ClienteCartao;
-import com.github.joanerson.bff_avaliador_credito.cartao.infra.CartaoDetalhadoResponse;
 import com.github.joanerson.bff_avaliador_credito.cartao.infra.cliente.CartaoWebService;
 
 import lombok.RequiredArgsConstructor;
@@ -26,7 +26,7 @@ public class CartaoApplicationService implements CartaoService{
 		log.debug("[renda] {}", renda);
 		List<CartaoResponse> cartoes = cartaoWebService.buscaCartaoPorRenda(renda);
 		log.debug("[finish] CartaoApplicationService - buscaCartaoPorRenda");
-		return null;
+		return cartoes;
 	}
 
 	@Override
@@ -34,7 +34,7 @@ public class CartaoApplicationService implements CartaoService{
 		log.info("[start] CartaoApplicationService - buscaCartaoPorCpf");
 		List<ClienteCartao> cartoes = cartaoWebService.buscaCartaoDoClientePorCpf(cpf);
 		log.debug("[finish] CartaoApplicationService - buscaCartaoPorCpf");
-		return null;
+		return cartoes;
 	}
 
 	@Override
@@ -42,6 +42,13 @@ public class CartaoApplicationService implements CartaoService{
 		log.info("[start] CartaoApplicationService - buscaCartaoPorId");
 		CartaoDetalhadoResponse cartao = cartaoWebService.buscaCartaoPorId(idCartao);
 		log.debug("[finish] CartaoApplicationService - buscaCartaoPorId");
-		return null;
+		return cartao;
+	}
+
+	@Override
+	public List<CartaoResponse> buscaCartoes() {
+		log.info("[start] CartaoApplicationService - buscaCartaoPorId");
+		log.debug("[finish] CartaoApplicationService - buscaCartaoPorId");
+		return List.of();
 	}
 }

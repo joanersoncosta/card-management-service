@@ -1,6 +1,6 @@
 server:
     servlet:
-      context-path: /bff-avaliador-credito/api
+      context-path: /avaliador-credito/api
 
 spring:
   application:
@@ -32,4 +32,4 @@ springdoc:
 url:
   alb:  
     cliente: ${URL_ALB_CLIENTE:http://localhost:8081/servico-cliente/api}  
-    cartao: ${URL_ALB_CARTAO:http://localhost:8082}  
+    cartao: ${URL_ALB_CARTAO:http://localhost:8082/servico-cartao/api}  

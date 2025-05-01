@@ -16,7 +16,7 @@ import reactor.core.publisher.Mono;
 @Log4j2
 public class ClienteInfraClient implements ClienteInfraService {
     private final WebClient webClient;
-    @Value("url.alb.cliente")
+    @Value("${url.alb.cliente}")
     private String urlServiceCliente;
     
     public ClienteInfraClient(WebClient.Builder webClientBuilder) {
